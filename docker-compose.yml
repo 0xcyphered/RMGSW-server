@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  app:
+    build: ./
+    restart: unless-stopped
+    env_file: ./.env
+    volumes:
+      - ./assets:/app/src/assets
+      # - ./certs:/app/certs
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+      - 443:443
+    stdin_open: true
+    tty: true
