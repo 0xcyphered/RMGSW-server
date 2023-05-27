@@ -1,5 +1,6 @@
 const Web3 = require("web3");
 const Contract = require("web3-eth-contract");
+const originConfig = require("../config/origin.config.js");
 const contractConfig = require("../config/contract.config.js");
 const infuraConfig = require("../config/infura.config.js");
 const ABI = require("./abi.json");
@@ -12,7 +13,7 @@ Contract.setProvider(
 
 
 var currentSupply = {};
-contractConfig.VALID_ORIGINS.forEach((origin, index) => {
+originConfig.VALID_ORIGINS.forEach((origin, index) => {
   console.log(contractConfig.ADDRESS)
   currentSupply[origin] = {
     address: contractConfig.ADDRESS[index],
