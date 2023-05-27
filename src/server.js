@@ -8,7 +8,7 @@ const cors = require("cors");
 const contractController = require("./controllers/contract.controller");
 const originConfig = require("./config/origin.config");
 
-originConfig.forEach((origin) => {
+originConfig.VALID_ORIGINS.forEach((origin) => {
   contractController.updateData(origin);
   setInterval(() => contractController.updateData(origin), 1000 * 60 * 5);
 });
