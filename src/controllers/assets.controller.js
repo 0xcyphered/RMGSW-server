@@ -4,6 +4,7 @@ const contractController = require("./contract.controller");
 
 
 exports.image = (req, res) => {
+  console.log(req.headers);
   const origin = req.headers.origin;
   console.log(origin);
   if (!config.VALID_ORIGINS.includes(origin)) {
