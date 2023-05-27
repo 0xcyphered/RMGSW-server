@@ -5,7 +5,7 @@ const contractController = require("./contract.controller");
 
 exports.image = (req, res) => {
   console.log(req.headers);
-  const origin = req.headers.origin;
+  const origin = req.headers.host;
   console.log(origin);
   if (!config.VALID_ORIGINS.includes(origin)) {
     return res.json({ message: "Welcome to assets application." });
@@ -25,6 +25,7 @@ exports.image = (req, res) => {
 };
 
 exports.metadata = (req, res) => {
+  console.log(req.headers);
   const origin = req.headers.origin;
   console.log(origin);
   if (!config.VALID_ORIGINS.includes(origin)) {
@@ -48,6 +49,7 @@ exports.metadata = (req, res) => {
 };
 
 exports.placeholder = (req, res) => {
+  console.log(req.headers);
   const origin = req.headers.origin;
   console.log(origin);
   if (!config.VALID_ORIGINS.includes(origin)) {
