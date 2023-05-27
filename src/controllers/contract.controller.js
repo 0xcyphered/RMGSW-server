@@ -13,6 +13,7 @@ Contract.setProvider(
 
 var currentSupply = {};
 contractConfig.VALID_ORIGINS.forEach((origin, index) => {
+  console.log(contractConfig.ADDRESS)
   currentSupply[origin] = {
     address: contractConfig.ADDRESS[index],
     supply: 0,
@@ -20,6 +21,7 @@ contractConfig.VALID_ORIGINS.forEach((origin, index) => {
 });
 
 exports.updateData = (origin) => {
+  console.log(currentSupply, origin);
   const ERC721Contract = new Contract(ABI, currentSupply[origin].address);
   ERC721Contract.methods
     .totalSupply()
