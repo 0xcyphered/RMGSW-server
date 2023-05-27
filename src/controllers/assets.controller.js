@@ -1,8 +1,7 @@
 const path = require("path");
-const config = require("../origin.config");
+const config = require("../config/origin.config");
 const contractController = require("./contract.controller");
 
-const validOrigins = config.VALID_ORIGINS;
 
 exports.image = (req, res) => {
   const origin = req.get("origin");
