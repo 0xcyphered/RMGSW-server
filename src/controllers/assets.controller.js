@@ -14,7 +14,7 @@ exports.image = (req, res) => {
   const numberId = parseInt(id.replace(".jpg", ""));
   const currentSupply = contractController.getData(origin);
 
-  if (numberId > 0 && numberId < currentSupply) {
+  if (numberId > 0 && numberId <= currentSupply) {
     res.sendFile(`${numberId}.jpg`, {
       root: path.join(__dirname, `../assets/${origin}/images`),
     });
@@ -32,7 +32,7 @@ exports.metadata = (req, res) => {
   const { id } = req.params;
   const numberId = parseInt(id);
   const currentSupply = contractController.getData(origin);
-  if (numberId > 0 && numberId < currentSupply) {
+  if (numberId > 0 && numberId <= currentSupply) {
     res.sendFile(id, {
       root: path.join(__dirname, `../assets/${origin}/metadata`),
       headers: {
